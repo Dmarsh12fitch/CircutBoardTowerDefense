@@ -113,10 +113,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9174df1791b32f34099caeb13eb3cb94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyDrop: 10
-  energyGain: 0.5
+  energyDrop: 16
+  energyGain: 0
   health: 100
-  healthGain: 36
+  healthGain: 32
   armySize: 4
   armySizeGain: 0.5
   speed: 1.5

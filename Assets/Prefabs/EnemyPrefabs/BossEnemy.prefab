@@ -217,13 +217,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyDrop: 10
-  energyGain: 12
+  energyGain: 20
   health: 1000
-  healthGain: 300
+  healthGain: 200
   armySize: 1
-  armySizeGain: 0
+  armySizeGain: 0.05
   speed: 0.5
-  spawnRate: 0
+  spawnRate: 4
   damageValue: 50
 --- !u!114 &-4510526923655859591
 MonoBehaviour:

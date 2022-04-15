@@ -19,6 +19,7 @@ public class SpawnManager : MonoBehaviour
 
     [FormerlySerializedAs("enemies")] public List<Enemy> enemyPrefabs;
     public float wave;
+    private float statGain; //scaling variable for enemy health
     [SerializeField] private TextMeshProUGUI waveDisplayText;
     [SerializeField] private GameObject tutorialDisplayText;
     public GameObject enemySpawn;
@@ -57,6 +58,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
+        statGain = 1;
         // for test exploder enemy. (not needed anymore)
         //FindObjectOfType<Enemy>().Init(pathManager.GetActivePath().GetExtrapolator().GetMinimalRepresentation(), deathEventChannel, invasionEventChannel);
         callCooldownBase = 15;
@@ -77,13 +79,16 @@ public class SpawnManager : MonoBehaviour
                 wave += 1;
                 if (wave % 10 != 0)
                 {
-                    //if a normal wave
-                    SpawnWave(2);
+                    if (wave > 10)
+                    {
+                        SpawnWave(2);
+                    }
+                    else SpawnWave(1);
                 }
                 else
                 {
                     //if a boss wave
-                    SpawnWave(4);
+                    SpawnWave(wave / 10);
                     //spawn boss here
                     SpawnBoss();
                 }
@@ -101,12 +106,16 @@ public class SpawnManager : MonoBehaviour
             if (wave % 10 != 0)
             {
                 //if a normal wave
-                SpawnWave(2);
+                if (wave > 10)
+                {
+                    SpawnWave(2);
+                }
+                else SpawnWave(1);
             }
             else
-            {
+            { 
                 //if a boss wave
-                SpawnWave(4);
+                SpawnWave(wave / 10);
                 //spawn boss here
                 SpawnBoss();
             }
@@ -120,13 +129,15 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnBoss()
     {
+        statGain += 1;
+
         var enemyPathNodes = GetEnemyPathNodes();
 
         var enemyPrefab = enemyPrefabs[4];
         var enemy = Instantiate(enemyPrefab);
 
         // determine how much heath that enemy gets.
-        enemy.Health += enemy.HealthGain * (wave - 1);
+        enemy.Health += enemy.HealthGain * (wave - 1) * statGain;
         enemy.EnergyDrop += enemy.EnergyGain * (wave - 1);
 
         // send the enemy the data it wants
@@ -182,7 +193,7 @@ public class SpawnManager : MonoBehaviour
     ///     Sub Wave contains only one enemy.
     /// </summary>
     /// <param name="numberOfSubWaves"> the number of sub waves to spawn</param>
-    public void SpawnWave(int numberOfSubWaves)
+    public void SpawnWave(float numberOfSubWaves)
     {
         // iterate for the number of sub waves.
         for (var subWaveIndex = 0; subWaveIndex < numberOfSubWaves; subWaveIndex++)
@@ -257,7 +268,7 @@ public class SpawnManager : MonoBehaviour
             var enemy = Instantiate(enemyPrefab);
 
             // determine how much heath that enemy gets.
-            enemy.Health += enemy.HealthGain * (wave - 1);
+            enemy.Health += enemy.HealthGain * (wave - 1) * statGain;
             enemy.EnergyDrop += enemy.EnergyGain * (wave - 1);
 
             // send the enemy the data it wants
