@@ -92,13 +92,13 @@ public class SpawnManager : MonoBehaviour
                     //spawn boss here
                     SpawnBoss();
                 }
-
+                
                 isOnCooldown = true;
                 SetOpacity(cooldownOpacity);
                 StartCoroutine(Cooldown());
             }
         }
-        else if(Input.GetKeyDown(DataSaverLoader.Gd.CallNextWave))
+        else if(Input.GetKeyDown(DataSaverLoader.Gd.CallNextWave) && isOnCooldown == false)
         {
             audioSource.clip = spawnSound;
             audioSource.Play();
@@ -129,19 +129,19 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnBoss()
     {
-        statGain += 1;
-
         var enemyPathNodes = GetEnemyPathNodes();
 
         var enemyPrefab = enemyPrefabs[4];
         var enemy = Instantiate(enemyPrefab);
 
         // determine how much heath that enemy gets.
-        enemy.Health += enemy.HealthGain * (wave - 1) * statGain;
+        enemy.Health += enemy.HealthGain * (wave - 1) * statGain * 0.8f;
         enemy.EnergyDrop += enemy.EnergyGain * (wave - 1);
 
         // send the enemy the data it wants
         enemy.Init(enemyPathNodes, deathEventChannel, invasionEventChannel);
+
+        statGain += 1;
     }
 
 
@@ -268,7 +268,7 @@ public class SpawnManager : MonoBehaviour
             var enemy = Instantiate(enemyPrefab);
 
             // determine how much heath that enemy gets.
-            enemy.Health += enemy.HealthGain * (wave - 1) * statGain;
+            enemy.Health += enemy.HealthGain * (wave - 1) * statGain * 0.8f;
             enemy.EnergyDrop += enemy.EnergyGain * (wave - 1);
 
             // send the enemy the data it wants
