@@ -32,6 +32,8 @@ namespace TurretBehaviour
 
         public AudioClip fireSound;
         public AudioSource audioSource;
+        public float baseVolume;
+
         private Quaternion angleToFireLaser;
         private Vector3 placeToFireLaser;
 
@@ -99,6 +101,8 @@ namespace TurretBehaviour
                 fireCooldownTime -= Time.deltaTime;
 
             }
+
+            ReduceSound(); //reduces sound based on number of other objects of the same type in the scene
         }
 
         public void OnStateStart()
@@ -242,6 +246,20 @@ namespace TurretBehaviour
             yield return new WaitForSeconds(DTime);
             hackedAnimDisplay.SetActive(false);
             isDisabled = false;
+        }
+
+        private void ReduceSound()
+        {
+            float totalCount = 0;
+            var turrets = GameObject.FindGameObjectsWithTag("Turret");
+            for (int i = 0; i < turrets.Length; i++)
+            {
+                if (turrets[i].name == gameObject.name) //if the turret is the same as this one
+                {
+                    totalCount += 1;
+                }
+            }
+            audioSource.volume = baseVolume / totalCount; //reduce sound by number of turrets in the scene
         }
     }
 }

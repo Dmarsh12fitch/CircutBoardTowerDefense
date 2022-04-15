@@ -260,6 +260,7 @@ MonoBehaviour:
   isDisabled: 0
   fireSound: {fileID: 8300000, guid: 6b381325196be1e42b09f0b92c99c459, type: 3}
   audioSource: {fileID: -6347442665013304708}
+  baseVolume: 0.5
 --- !u!65 &-587090902366188663
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -285,7 +286,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.05
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -359,7 +360,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.53
       inSlope: 0
       outSlope: 0
       tangentMode: 0

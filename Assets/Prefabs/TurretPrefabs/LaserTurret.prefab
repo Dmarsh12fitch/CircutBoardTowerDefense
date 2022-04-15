@@ -157,6 +157,7 @@ MonoBehaviour:
   isDisabled: 0
   fireSound: {fileID: 8300000, guid: d2a55ff4309cf674f930fa9d17999a2b, type: 3}
   audioSource: {fileID: 3813824811895693426}
+  baseVolume: 0.9
 --- !u!82 &3813824811895693426
 AudioSource:
   m_ObjectHideFlags: 0
