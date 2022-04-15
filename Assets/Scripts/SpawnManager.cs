@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
 
     [FormerlySerializedAs("enemies")] public List<Enemy> enemyPrefabs;
     public float wave;
-    private float statGain; //scaling variable for enemy health
+    public float statGain; //scaling variable for enemy health
     [SerializeField] private TextMeshProUGUI waveDisplayText;
     [SerializeField] private GameObject tutorialDisplayText;
     public GameObject enemySpawn;
@@ -135,7 +135,7 @@ public class SpawnManager : MonoBehaviour
         var enemy = Instantiate(enemyPrefab);
 
         // determine how much heath that enemy gets.
-        enemy.Health += enemy.HealthGain * (wave - 1) * statGain * 0.8f;
+        enemy.Health += enemy.HealthGain * (wave - 1) * statGain;
         enemy.EnergyDrop += enemy.EnergyGain * (wave - 1);
 
         // send the enemy the data it wants
@@ -268,7 +268,7 @@ public class SpawnManager : MonoBehaviour
             var enemy = Instantiate(enemyPrefab);
 
             // determine how much heath that enemy gets.
-            enemy.Health += enemy.HealthGain * (wave - 1) * statGain * 0.8f;
+            enemy.Health += enemy.HealthGain * (wave - 1) * statGain;
             enemy.EnergyDrop += enemy.EnergyGain * (wave - 1);
 
             // send the enemy the data it wants
