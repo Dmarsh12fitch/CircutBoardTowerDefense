@@ -3108,6 +3108,7 @@ MonoBehaviour:
   - {fileID: 8919982350946285713, guid: 7d6986d3c9adaa44d83e59307cf14ef9, type: 3}
   - {fileID: 536390706145393695, guid: 09397424f2f686d40abd26d1d2ce5f18, type: 3}
   wave: 0
+  statGain: 0
   waveDisplayText: {fileID: 140265575}
   tutorialDisplayText: {fileID: 162599688}
   enemySpawn: {fileID: 1134139341}
@@ -3193,6 +3194,7 @@ GameObject:
   - component: {fileID: 922064743}
   - component: {fileID: 922064742}
   - component: {fileID: 922064741}
+  - component: {fileID: 922064744}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -3284,6 +3286,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &922064744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922064740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48897d210fcb664489dab55b0588e795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1023127038
 GameObject:
   m_ObjectHideFlags: 0
