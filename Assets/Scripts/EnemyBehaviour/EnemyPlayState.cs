@@ -71,6 +71,7 @@ namespace EnemyBehaviour
                 
                 if (isExploding)
                 {
+                    var spawnScript = GameObject.Find("EnemySpawnRoot").GetComponent<SpawnManager>();
                     //this explodes the enemy
                     if (!notMoving)
                     {
@@ -81,13 +82,13 @@ namespace EnemyBehaviour
                         {
                             Instantiate(BossEMPExplision, spawnExplosionEffectLoco, spawnExplosionRotation);
                             notMoving = true;
-                            StartCoroutine(DisableTimer(7.0f, 6 + (enemy.EnergyDrop / 125)));
+                            StartCoroutine(DisableTimer(7.0f, 6 + (spawnScript.wave / 10)));
                         }
                         else
                         {
                             Instantiate(EMPExplosion, spawnExplosionEffectLoco, spawnExplosionRotation);
                             notMoving = true;
-                            StartCoroutine(DisableTimer(2.5f, (enemy.EnergyDrop / 5)));
+                            StartCoroutine(DisableTimer(2.5f, (spawnScript.wave / 10)));
                         }
                     }
                 }

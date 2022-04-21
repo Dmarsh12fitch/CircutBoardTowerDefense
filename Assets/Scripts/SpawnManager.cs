@@ -141,7 +141,7 @@ public class SpawnManager : MonoBehaviour
         // send the enemy the data it wants
         enemy.Init(enemyPathNodes, deathEventChannel, invasionEventChannel);
 
-        statGain += 0.5f;
+        statGain += 0.7f;
     }
 
 
