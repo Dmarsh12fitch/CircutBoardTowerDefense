@@ -3235,7 +3235,8 @@ MonoBehaviour:
   - {fileID: 8919982350946285713, guid: 7d6986d3c9adaa44d83e59307cf14ef9, type: 3}
   - {fileID: 536390706145393695, guid: 09397424f2f686d40abd26d1d2ce5f18, type: 3}
   wave: 0
-  statGain: 0
+  statGain: 0.8
+  statGainTotal: 0
   waveDisplayText: {fileID: 140265575}
   tutorialDisplayText: {fileID: 162599688}
   enemySpawn: {fileID: 1134139341}

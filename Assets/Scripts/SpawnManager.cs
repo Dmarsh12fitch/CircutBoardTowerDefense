@@ -20,6 +20,7 @@ public class SpawnManager : MonoBehaviour
     [FormerlySerializedAs("enemies")] public List<Enemy> enemyPrefabs;
     public float wave;
     public float statGain; //scaling variable for enemy health
+    public float statGainTotal; //starts at 1
     [SerializeField] private TextMeshProUGUI waveDisplayText;
     [SerializeField] private GameObject tutorialDisplayText;
     public GameObject enemySpawn;
@@ -58,7 +59,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
-        statGain = 1;
+        statGainTotal = 1;
         // for test exploder enemy. (not needed anymore)
         //FindObjectOfType<Enemy>().Init(pathManager.GetActivePath().GetExtrapolator().GetMinimalRepresentation(), deathEventChannel, invasionEventChannel);
         callCooldownBase = 15;
@@ -135,13 +136,13 @@ public class SpawnManager : MonoBehaviour
         var enemy = Instantiate(enemyPrefab);
 
         // determine how much heath that enemy gets.
-        enemy.Health += enemy.HealthGain * (wave - 1) * statGain;
+        enemy.Health += enemy.HealthGain * (wave - 1) * statGainTotal;
         enemy.EnergyDrop += enemy.EnergyGain * (wave - 1);
 
         // send the enemy the data it wants
         enemy.Init(enemyPathNodes, deathEventChannel, invasionEventChannel);
 
-        statGain += 0.7f;
+        statGainTotal += statGain;
     }
 
 
@@ -268,7 +269,7 @@ public class SpawnManager : MonoBehaviour
             var enemy = Instantiate(enemyPrefab);
 
             // determine how much heath that enemy gets.
-            enemy.Health += enemy.HealthGain * (wave - 1) * statGain;
+            enemy.Health += enemy.HealthGain * (wave - 1) * statGainTotal;
             enemy.EnergyDrop += enemy.EnergyGain * (wave - 1);
 
             // send the enemy the data it wants

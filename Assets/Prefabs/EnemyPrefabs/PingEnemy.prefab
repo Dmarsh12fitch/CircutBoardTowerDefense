@@ -117,7 +117,7 @@ MonoBehaviour:
   energyDrop: 3
   energyGain: 0
   health: 10
-  healthGain: 3
+  healthGain: 4
   armySize: 6
   armySizeGain: 0.75
   speed: 4.5
