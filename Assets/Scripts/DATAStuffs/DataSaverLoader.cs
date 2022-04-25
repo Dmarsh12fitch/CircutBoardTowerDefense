@@ -18,7 +18,129 @@ public static class DataSaverLoader
             for(int j = 0; j < Gd.Scoreboards[i].Slots.Length; j++)
             {
                 Gd.Scoreboards[i].Slots[j].PlayerName = "TESTER" + (j).ToString();
-                Gd.Scoreboards[i].Slots[j].Score = Random.Range(100, 200 * (j + 1));
+                Gd.Scoreboards[i].Slots[j].Score = Random.Range(100, 250 * (j + 1));
+
+                //OURSCORES
+
+                //RYANP__
+                if (i == 0 && j == 1)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "RYANP__";
+                    Gd.Scoreboards[i].Slots[j].Score = 13592;
+                }
+
+                if (i == 1 && j == 1)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "RYANP__";
+                    Gd.Scoreboards[i].Slots[j].Score = 9975;
+                }
+
+                if (i == 2 && j == 1)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "RYANP__";
+                    Gd.Scoreboards[i].Slots[j].Score = 10175;
+                }
+
+                if (i == 3 && j == 1)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "RYANP__";
+                    Gd.Scoreboards[i].Slots[j].Score = 9420;
+                }
+
+                if (i == 4 && j == 1)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "RYANP__";
+                    Gd.Scoreboards[i].Slots[j].Score = 8570;
+                }
+
+                if (i == 5 && j == 1)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "RYANP__";
+                    Gd.Scoreboards[i].Slots[j].Score = 9163;
+                }
+
+                //LIZARD_
+                if (i == 0 && j == 2)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "LIZARD_";
+                    Gd.Scoreboards[i].Slots[j].Score = 42;
+                }
+
+                if (i == 1 && j == 2)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "LIZARD_";
+                    Gd.Scoreboards[i].Slots[j].Score = 420;
+                }
+
+                if (i == 2 && j == 2)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "LIZARD_";
+                    Gd.Scoreboards[i].Slots[j].Score = -666;
+                }
+
+                if (i == 3 && j == 2)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "LIZARD_";
+                    Gd.Scoreboards[i].Slots[j].Score = 8008;
+                }
+
+                if (i == 4 && j == 2)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "LIZARD_";
+                    Gd.Scoreboards[i].Slots[j].Score = 24;
+                }
+
+                if (i == 5 && j == 2)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "LIZARD_";
+                    Gd.Scoreboards[i].Slots[j].Score = 6969;
+                }
+
+
+                //DEVDAVE
+                if (i == 0 && j == 0)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "DEVDAVE";
+                    Gd.Scoreboards[i].Slots[j].Score = 11571;
+                }
+
+                if (i == 1 && j == 0)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "DEVDAVE";
+                    Gd.Scoreboards[i].Slots[j].Score = 11886;
+                }
+
+                if (i == 2 && j == 0)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "DEVDAVE";
+                    Gd.Scoreboards[i].Slots[j].Score = 4094;
+                }
+
+                if (i == 3 && j == 0)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "DEVDAVE";
+                    Gd.Scoreboards[i].Slots[j].Score = 6574;
+                }
+
+                if (i == 4 && j == 0)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "DEVDAVE";
+                    Gd.Scoreboards[i].Slots[j].Score = 6664;
+                }
+
+                if (i == 5 && j == 0)
+                {
+                    Gd.Scoreboards[i].Slots[j].PlayerName = "DEVDAVE";
+                    Gd.Scoreboards[i].Slots[j].Score = 698;
+                }
+
+
+
+
+
+                //OURSCORES
+
+
             }
             SortData(i + 1);
         }
