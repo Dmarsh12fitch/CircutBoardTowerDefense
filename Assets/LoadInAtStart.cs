@@ -13,7 +13,7 @@ public class LoadInAtStart : MonoBehaviour
             DataSaverLoader.NewData();
         }
 
-        DataSaverLoader.Gd.IsArcadeBuild = true;
+        DataSaverLoader.Gd.IsArcadeBuild = false;
 
         if (DataSaverLoader.Gd.IsArcadeBuild)
         {
