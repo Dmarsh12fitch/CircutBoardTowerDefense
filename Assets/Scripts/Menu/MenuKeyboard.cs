@@ -81,12 +81,30 @@ public class MenuKeyboard : MonoBehaviour
             }
         }
 
+        if(DataSaverLoader.Gd.IsArcadeBuild)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                isActive = true;
+                buttons[currentSelection].GetComponent<MenuButton>().UseButton();
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                isActive = true;
+                buttons[currentSelection].GetComponent<MenuButton>().UseButton();
+            }
+        }
+
+        /*
         if (Input.GetKeyDown(DataSaverLoader.Gd.SelectAndPlace))
         {
             isActive = true;
             buttons[currentSelection].GetComponent<MenuButton>().UseButton();
         }
-
+        */
         if (Input.GetKeyDown("escape"))
         {
             Application.Quit();

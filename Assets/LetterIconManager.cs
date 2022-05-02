@@ -15,6 +15,7 @@ public class LetterIconManager : MonoBehaviour
     private int SelectedLeterIconIndex;
     private bool Flip;
     private string FinalName;
+    private bool thingie;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class LetterIconManager : MonoBehaviour
         SelectedLeterIconIndex = 0;
         ScoreText.text = "Score: " + DataSaverLoader.Gd.LatestScore.ToString();
         InvokeRepeating("Blink", 0, 0.5f);
+        thingie = false;
     }
 
     private void Update()
@@ -45,7 +47,22 @@ public class LetterIconManager : MonoBehaviour
             SelectedLetterIcon.text = AlphabetAndNums[CurrentLetterIndex];
             SelectedLetterIcon.fontSize = 25;
         }
-        else if (Input.GetKeyDown(DataSaverLoader.Gd.SelectAndPlace) || Input.GetKeyDown(KeyCode.Return))
+        else if(DataSaverLoader.Gd.IsArcadeBuild)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                thingie = true;
+            }
+        }
+        else
+        {
+            if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return))
+            {
+                thingie = true;
+            }
+        }
+        
+        if(thingie)
         {
             CurrentLetterIndex = 0;
             FinalName = FinalName + SelectedLetterIcon.text;
@@ -71,10 +88,9 @@ public class LetterIconManager : MonoBehaviour
                 //go back to main menu
                 SceneManager.LoadScene(0);
             }
+
+            thingie = false;
         }
-
-
-
     }
 
     private void Blink()

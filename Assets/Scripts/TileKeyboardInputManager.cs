@@ -115,7 +115,20 @@ public class TileKeyboardInputManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A)) AttemptMoveCardinalDirection(CardinalDirection.West);
 
-        if (Input.GetKeyDown(DataSaverLoader.Gd.SelectAndPlace) && GetActive() != null) GetActive().AttemptToPlaceTurret();
+        if (DataSaverLoader.Gd.IsArcadeBuild)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && GetActive() != null)
+            {
+                GetActive().AttemptToPlaceTurret();
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.E) && GetActive() != null)
+            {
+                GetActive().AttemptToPlaceTurret();
+            }
+        }
 
         if (Input.GetKeyDown(DataSaverLoader.Gd.SellTurret) && GetActive() != null) GetActive().SellTurret();
     }

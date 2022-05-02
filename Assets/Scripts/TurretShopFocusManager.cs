@@ -89,8 +89,21 @@ public class TurretShopFocusManager : ExclusiveSubsectionFocusManager
             Activate(newEntry);
         }
 
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(DataSaverLoader.Gd.SelectAndPlace) && entries.GetActive() != null)
-            selectedManager.Activate(entries.GetActive().Root.SelectionInteractor);
+        if (DataSaverLoader.Gd.IsArcadeBuild)
+        {
+            if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && entries.GetActive() != null)
+            {
+                selectedManager.Activate(entries.GetActive().Root.SelectionInteractor);
+            }
+        }
+        else
+        {
+            if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.E)) && entries.GetActive() != null)
+            {
+                selectedManager.Activate(entries.GetActive().Root.SelectionInteractor);
+            }
+        }
+            
     }
 
     private void FixFocusCenter(IFocusDisplay focusDisplay)
